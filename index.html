@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DexterCraft | VIP, PREMIUM, ULTIMATE</title>
+    <style>
+        :root {
+            --vip-color: #ffd700;
+            --premium-color: #c0c0c0;
+            --ultimate-color: #ff4500;
+            --dark-bg: #1a1a2e;
+            --card-bg: #16213e;
+            --text-color: #e6e6e6;
+            --accent-color: #0f3460;
+            --rules-bg: #2d3047;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--accent-color);
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .intro h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        
+        .intro p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .privileges {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .privilege-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 2rem;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .privilege-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .privilege-card.vip {
+            border-top: 5px solid var(--vip-color);
+        }
+        
+        .privilege-card.premium {
+            border-top: 5px solid var(--premium-color);
+        }
+        
+        .privilege-card.ultimate {
+            border-top: 5px solid var(--ultimate-color);
+        }
+        
+        .privilege-name {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        
+        .vip .privilege-name {
+            color: var(--vip-color);
+        }
+        
+        .premium .privilege-name {
+            color: var(--premium-color);
+        }
+        
+        .ultimate .privilege-name {
+            color: var(--ultimate-color);
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            margin: 1.5rem 0;
+            font-weight: bold;
+        }
+        
+        .features {
+            list-style-type: none;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+        
+        .features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .features li:before {
+            content: "✓";
+            margin-right: 10px;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Стили для раздела правил */
+        .rules-section {
+            background-color: var(--rules-bg);
+            padding: 3rem 0;
+            margin: 3rem 0;
+        }
+
+        .rules-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .rules-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #fff;
+        }
+
+        .rules-category {
+            margin-bottom: 3rem;
+        }
+
+        .rules-category h3 {
+            color: var(--vip-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--vip-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .rules-list {
+            list-style-type: none;
+        }
+
+        .rules-list li {
+            background-color: rgba(255, 255, 255, 0.05);
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-radius: 5px;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .rule-number {
+            font-weight: bold;
+            color: var(--vip-color);
+        }
+
+        .rule-exception {
+            color: #ff6b6b;
+            font-style: italic;
+            margin-top: 0.5rem;
+            display: block;
+        }
+
+        .sub-rules {
+            margin-top: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        .sub-rules li {
+            background: none;
+            border-left: none;
+            padding: 0.3rem 0;
+            margin-bottom: 0;
+        }
+
+        .update-notice {
+            text-align: center;
+            background-color: rgba(255, 215, 0, 0.1);
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 2rem;
+            border: 1px solid var(--vip-color);
+        }
+
+        .update-notice strong {
+            color: var(--vip-color);
+        }
+        
+        .instructions {
+            background-color: var(--accent-color);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 3rem;
+        }
+        
+        .instructions h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .steps {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .step-number {
+            background-color: #4CAF50;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-weight: bold;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            background-color: var(--accent-color);
+        }
+        
+        @media (max-width: 768px) {
+            .privileges {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .privilege-card {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">DexterCraft Привилегии</div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="intro">
+            <h1>Улучшите свой игровой опыт</h1>
+            <p>Приобретите привилегии на нашем сервере DexterCraft и получите эксклюзивные возможности, команды и доступ к уникальным функциям!</p>
+        </section>
+        
+        <section class="privileges">
+            <div class="privilege-card vip">
+                <h2 class="privilege-name">VIP</h2>
+                <div class="price">299 ₽</div>
+                <ul class="features">
+                    <li>Доступ к /fly и /heal</li>
+                    <li>Префикс в чате [VIP]</li>
+                    <li>Цветной никнейм</li>
+                </ul>
+                <button class="btn buy-btn" data-plan="VIP">Купить сейчас</button>
+            </div>
+            
+            <div class="privilege-card premium">
+                <h2 class="privilege-name">PREMIUM</h2>
+                <div class="price">599 ₽</div>
+                <ul class="features">
+                    <li>Все возможности VIP</li>
+                    <li>Префикс [PREMIUM]</li>
+                    <li>Приоритет в подключении</li>
+                    <li>Эксклюзивные киты</li>
+                </ul>
+                <button class="btn buy-btn" data-plan="PREMIUM">Купить сейчас</button>
+            </div>
+            
+            <div class="privilege-card ultimate">
+                <h2 class="privilege-name">ULTIMATE</h2>
+                <div class="price">799 ₽</div>
+                <ul class="features">
+                    <li>Все возможности PREMIUM</li>
+                    <li>Префикс [ULTIMATE]</li>
+                    <li>Прямая связь с администрацией</li>
+                </ul>
+                <button class="btn buy-btn" data-plan="ULTIMATE">Купить сейчас</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Секция с правилами -->
+    <section class="rules-section">
+        <div class="rules-container">
+            <h2 class="rules-title">Правила Сервера</h2>
+            
+            <div class="rules-category">
+                <h3>Основные правила</h3>
+                <ul class="rules-list">
+                    <li>
+                        <span class="rule-number">1.0</span> - Гриферство на сервере запрещено. Приваты на сервере отключены
+                        <span class="rule-exception">ИСКЛЮЧЕНИЕ: судная ночь, конец вайпа</span>
+                    </li>
+                    <li>
+                        <span class="rule-number">1.1</span> - Ломать, взрывать спавн карается баном навсегда
+                        <span class="rule-exception">ИСКЛЮЧЕНИЕ: конец вайпа</span>
+                    </li>
+                    <li>
+                        <span class="rule-number">1.2</span> - Оскорбление игрока карается мутом (упоминание родных тоже считается)
+                    </li>
+                    <li>
+                        <span class="rule-number">1.3</span> - Читы на сервере строго запрещены (чит ресурс-паки тоже считаются за чит, такие как X-ray и т.д.)
+                    </li>
+                    <li>
+                        <span class="rule-number">1.4</span> - ПВП на спавне запрещено (карается предупреждением, киллом, киком, баном)
+                    </li>
+                </ul>
+            </div>
+
+            <div class="rules-category">
+                <h3>Правила мини-игр и ивентов</h3>
+                <ul class="rules-list">
+                    <li>
+                        <span class="rule-number">Ивент "Крейт"</span>
+                        <ul class="sub-rules">
+                            <li>В чате пишут когда начинается ивент</li>
+                            <li>ПВП разрешено только в зоне ивента и после уведомления о запуске ивента</li>
+                            <li>После 5 минут ивента в сундук кладется топ вещи</li>
+                            <li>Кроме вещей могут выпасть фрагменты доната либо сам донат</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="rule-number">Ивент "Supple Drop"</span>
+                        <ul class="sub-rules">
+                            <li>В чате уведомляют о начале ивента</li>
+                            <li>Отправляют координаты ящика</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="rules-category">
+                <h3>Что делать если вас загриферили</h3>
+                <ul class="rules-list">
+                    <li>У вас должны быть доказательства, а именно демка либо от двух до пяти скриншотов</li>
+                    <li>После с доказательствами пишите админам либо создателям</li>
+                    <li>После этого нарушителя забанят, а вам компенсируют убытки</li>
+                </ul>
+            </div>
+
+            <div class="update-notice">
+                <strong>Обновления будут выходить каждый месяц-неделю</strong>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <section class="instructions">
+            <h2>Как приобрести привилегию</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <p>Выберите подходящую привилегию и нажмите "Купить сейчас"</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <p>Вы будете перенаправлены в Telegram бота для оформления заказа</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <p>Оплатите заказ удобным способом и получите привилегию на сервере</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 DexterCraft. Все права защищены.</p>
+            <p>По всем вопросам обращайтесь в нашу техническую поддержку</p>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const buyButtons = document.querySelectorAll('.buy-btn');
+            
+            buyButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const plan = this.getAttribute('data-plan');
+                    redirectToTelegram(plan);
+                });
+            });
+            
+            function redirectToTelegram(plan) {
+                // ЗАМЕНИТЕ 'YOUR_BOT_USERNAME' на имя вашего бота БЕЗ @
+                const botUsername = "DexterCraftShop_Bot";
+                
+                const message = `Здравствуйте! Я хочу приобрести привилегию ${plan} на вашем сервере Minecraft.`;
+                const telegramUrl = `https://t.me/${botUsername}?start=${encodeURIComponent(plan)}&text=${encodeURIComponent(message)}`;
+                
+                window.open(telegramUrl, '_blank');
+                alert(`Вы выбрали привилегию ${plan}. Сейчас вы будете перенаправлены в Telegram для оформления заказа.`);
+            }
+        });
+    </script>
+</body>
+</html>
